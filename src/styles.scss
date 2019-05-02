@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@import 'themes';
+
+// framework component styles which will use your new theme
+@import '~@nebular/theme/styles/globals';
+
+// install the framework
+@include nb-install() {
+  @include nb-theme-global();
+};
+
+/*--//responsive-design---*/
+
+
+
+.weather-top .skycons__canvas{
+width: 150px ;
+
+}
+
+
+.weather-bottom .skycons__canvas{
+width: 70px ;
+
+
+}
+
+
+#weather-temp{
+ position: absolute;
+ top:10px;
+ right: 200px;
+}
+
+#weather-info{
+position: absolute;
+bottom:10px;
+right:2px;
+ text-align:right
+
+}
+@media(max-width:480px){
+
+#main i{
+ font-size:1em !important;
+  }
+
+  .weather-top .skycons__canvas{
+width: 90px ;
+padding-right: 8px;
+}
+
+.weather-bottom .skycons__canvas{
+width:90px;
+padding-right:40px;
+
+}
+
+#weather-temp{
+ position: absolute;
+ top:0px;
+ right: 10px;
+  text-align:right
+}
+
+#weather-temp h2{
+  font-size: 2em;
+}
+
+#weather-info{
+ position: absolute;
+ bottom:-5px;
+ right: 10px;
+}
+
+
+
+
+}
+

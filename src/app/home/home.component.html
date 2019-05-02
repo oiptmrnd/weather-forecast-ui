@@ -1,0 +1,184 @@
+<ngx-spinner></ngx-spinner>
+<div class="main" id="main">
+  <h1>Weather Forecast App</h1>
+  <div class="container main-info w-sm-50 " >
+    <div class="row">
+      <div class="col-md-3 offset-md-3 col-12 mb-3">
+        <select
+          [(ngModel)]="nrSelectState"
+          class="form-control form-control-lg "
+          (change)="onChange($event)"
+        >
+          <option value="null">Select your city..</option>
+          <option
+            class="first-level"
+            *ngFor="let state of states"
+            value="{{ state.key }}"
+            >{{ state.val }}</option
+          >
+        </select>
+      </div>
+
+      <div class="col-md-3  col-12 mb-3" *ngIf="nrSelectState">
+        <select
+          [(ngModel)]="nrSelectTown"
+          class="form-control form-control-lg"
+          (change)="onChangeTown()"
+        >
+          <option value="null">Select your town..</option>
+
+          <option
+            class="second-level"
+            *ngFor="let town of towns"
+            value="{{ town.key }}"
+            >{{ town.val }}</option
+          >
+        </select>
+      </div>
+    </div>
+    <div class="weather-top row  m-1  mb-3" style="position: relative;" *ngIf="processedData[0]">
+
+
+      <div class="weather-grids " id="weather-temp" >
+        <h2 >Max {{processedData[0][4].value}}°C</h2>
+
+        <h2>Min {{processedData[0][3].value}}°C</h2>
+      </div>
+
+      <div class="weather-grids weather-mdl col-sm-6 align-self-center col-4" >
+        <div class="row">
+
+          <div class="col-md-4 " >
+            <p class="text-center">morning</p>
+            <sc-skycons [weather]="getWeatherClass(processedData[0][0].value,processedData[0][0].datatype)" [color]="'#FFD700'" *ngIf="processedData[0][0].value.includes('No rain')"></sc-skycons>
+            <sc-skycons [weather]="getWeatherClass(processedData[0][0].value,processedData[0][0].datatype)" [color]="'#FFD700'" *ngIf="processedData[0][0].value.includes('Rain') || (processedData[0][0].value.includes('rain')&&!processedData[0][0].value.includes('No rain'))"></sc-skycons>
+            <span *ngIf="processedData[0][0].value.includes('Thunderstorms') ||processedData[0][0].value.includes('thunderstorms')"><i class="fas fa-bolt fa-2x" style="color:#FFD700"></i>
+            <sc-skycons [weather]="getWeatherClass(processedData[0][0].value,processedData[0][0].datatype)" [color]="'#FFD700'"></sc-skycons>
+              </span>
+          </div>
+
+          <div class="col-md-4" >
+            <p class="text-center">Afternoon</p>
+          <sc-skycons [weather]="getWeatherClass(processedData[0][1].value,processedData[0][1].datatype)" [color]="'#FFD700'"
+            *ngIf="processedData[0][1].value.includes('No rain')"></sc-skycons>
+          <sc-skycons [weather]="getWeatherClass(processedData[0][1].value,processedData[0][1].datatype)" [color]="'#FFD700'"
+            *ngIf="processedData[0][1].value.includes('Rain')|| (processedData[0][1].value.includes('rain')&&!processedData[0][1].value.includes('No rain'))"></sc-skycons>
+          <span *ngIf="processedData[0][1].value.includes('Thunderstorms')||processedData[0][1].value.includes('thunderstorms')"><i class="fas fa-bolt fa-2x" style="color:#FFD700"></i>
+            <sc-skycons [weather]="getWeatherClass(processedData[0][1].value,processedData[0][1].datatype)" [color]="'#FFD700'">
+            </sc-skycons>
+          </span>
+
+          </div>
+          <div class="col-md-4">
+            <p class="text-center">night</p>
+            <sc-skycons [weather]="getWeatherClass(processedData[0][2].value,processedData[0][2].datatype)" [color]="'#FFD700'"
+              *ngIf="processedData[0][2].value.includes('No rain')"></sc-skycons>
+            <sc-skycons [weather]="getWeatherClass(processedData[0][2].value,processedData[0][2].datatype)" [color]="'#FFD700'"
+              *ngIf="processedData[0][2].value.includes('Rain')|| (processedData[0][2].value.includes('rain') &&!processedData[0][2].value.includes('No rain'))"></sc-skycons>
+            <span *ngIf="processedData[0][2].value.includes('Thunderstorms')||processedData[0][2].value.includes('thunderstorms')"><i class="fas fa-bolt fa-2x" style="color:#FFD700"></i>
+              <sc-skycons [weather]="getWeatherClass(processedData[0][2].value,processedData[0][2].datatype)" [color]="'#FFD700'">
+              </sc-skycons>
+            </span>
+
+          </div>
+        </div>
+
+
+
+      </div>
+  <!--    <div class="col-4 offset-4">
+ <div class="row d-flex align-items-stretch"> -->
+  <!-- <div class="weather-grids col-sm-3 col-12 align-self-center"> -->
+  <!-- <div class="weather-grids" style="position: absolute; top:10px; right: 50px;">
+    <h3>Max 27°</h3>
+
+    <h3>Min 10°</h3>
+  </div>
+
+  <div class="weather-grids col-sm-3 col-12  align-self-end"> -->
+   <div class="weather-grids" id="weather-info">
+    <h3 class="fri">{{getWeatherDay(processedData[0][0].date).long}}</h3>
+    <h3 >{{date1 | date:'MMMM d, y'}}</h3>
+    <h3>{{processedData[0][5].attributes.code}} for the {{processedData[0][5].attributes.when}}</h3>
+  </div>
+
+<!-- </div>
+
+      </div>-->
+
+    </div>
+    <div class="weather-bottom row m-1">
+      <div class="bg col-sm-2 "  *ngFor="let item of processedData | slice:1">
+        <div class="row d-flex flex-sm-column align-items-between ">
+          <div class="align-self-start pl-sm-0 col-2 ">
+            <h4>{{getWeatherDay(item[0].date).short}}</h4>
+
+          </div>
+          <div class="col-8 align-self-start">
+            <div class="row">
+              <div class="col-4 col-md-12">
+                <sc-skycons [weather]="getWeatherClass(item[0]?.value,item[0]?.datatype)" [color]="'#FFD700'"
+                  *ngIf="item[0]?.value.includes('No rain')"></sc-skycons>
+                <sc-skycons [weather]="getWeatherClass(item[0]?.value,item[0]?.datatype)" [color]="'#FFD700'"
+                  *ngIf="item[0]?.value.includes('Rain')||(item[0]?.value.includes('rain')&&!item[0]?.value.includes('No rain'))"></sc-skycons>
+                <span *ngIf="item[0]?.value.includes('Thunderstorms')||item[0]?.value.includes('thunderstorms')"><i class="fas fa-bolt fa-2x"
+                    style="color:#FFD700"></i>
+                  <sc-skycons [weather]="getWeatherClass(item[0]?.value,item[0]?.datatype)" [color]="'#FFD700'">
+                  </sc-skycons>
+                </span>
+              <h6>Morning</h6>
+              </div>
+              <div class="col-4 col-md-12">
+                <sc-skycons [weather]="getWeatherClass(item[1]?.value,item[1]?.datatype)" [color]="'#FFD700'"
+                  *ngIf="item[1]?.value.includes('No rain')"></sc-skycons>
+                <sc-skycons [weather]="getWeatherClass(item[1]?.value,item[1]?.datatype)" [color]="'#FFD700'"
+                  *ngIf="item[1]?.value.includes('Rain')||(item[1]?.value.includes('rain')&&!item[1]?.value.includes('No rain'))"></sc-skycons>
+                <span *ngIf="item[1]?.value.includes('Thunderstorms')||item[1]?.value.includes('thunderstorms')"><i class="fas fa-bolt fa-2x" style="color:#FFD700"></i>
+                  <sc-skycons [weather]="getWeatherClass(item[1]?.value,item[1].datatype)" [color]="'#FFD700'">
+                  </sc-skycons>
+                </span>
+              <h6>Afternoon</h6>
+            </div>
+              <div class="col-4 col-md-12">
+                <sc-skycons [weather]="getWeatherClass(item[2]?.value,item[2]?.datatype)" [color]="'#FFD700'"
+                  *ngIf="item[2]?.value.includes('No rain')"></sc-skycons>
+                <sc-skycons [weather]="getWeatherClass(item[2]?.value,item[2]?.datatype)" [color]="'#FFD700'"
+                  *ngIf="item[2]?.value.includes('Rain')||(item[2]?.value.includes('rain')&&!item[2]?.value.includes('No rain'))"></sc-skycons>
+                <span *ngIf="item[2]?.value.includes('Thunderstorms')||item[2]?.value.includes('thunderstorms')"><i class="fas fa-bolt fa-2x" style="color:#FFD700"></i>
+                  <sc-skycons [weather]="getWeatherClass(item[2]?.value,item[2]?.datatype)" [color]="'#FFD700'">
+                  </sc-skycons>
+                </span>
+              <h6>Night</h6></div>
+            </div>
+
+
+
+          </div>
+
+          <div class="col-md-6 col-2 align-self-end">
+            <h5>{{item[4].value}}°C</h5>
+            <h6>{{item[3].value}}°C</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h5>{{item[5].attributes.code}} for the {{item[5].attributes.when}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel" class="row mt-5 justify-content-center ">
+      <div class="col-12">
+        <h1 class="text-center">Meteorological Info</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 ">
+        <button class="btn infoBtn btn-lg btn-default " (click)="open()">
+          More Info
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

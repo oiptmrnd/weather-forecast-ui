@@ -1,0 +1,59 @@
+
+
+#select {
+height:68px;
+}
+
+h1.display-1 {
+  color:white;
+}
+
+@media only screen and (max-width: 992px) {
+#select {
+height:50px;
+}
+}
+
+.white{
+  background-color: white;
+}
+
+@media only screen and (max-width: 479px) {
+h1{
+  font-size: 2rem;
+}
+
+
+}
+
+.img{
+  margin: calc(.15%);
+    line-height: 0;
+    float: left;
+}
+
+.image-wrapper{
+      width: calc(29.4574%);
+}
+
+::ng-deep #image {
+    margin: 20px 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.btn-primary{
+  background-color: transparent;
+}
+
+option .second-level{
+
+ padding: 0 40px;
+
+}

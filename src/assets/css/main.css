@@ -1,0 +1,472 @@
+
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/*--reset--*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/*--start editing from here--*/
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*--end reset--*/
+body {
+
+    background-attachment: fixed;
+
+  font-family: 'Josefin Sans', sans-serif;
+    background: url("../../assets/images/nightsky.jpg") repeat;
+}
+.border{
+    border: 1px solid white;
+}
+#main{
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+h1 {
+    font-size: 3em;
+    text-align: center;
+    color: #000;
+    font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif;
+}
+/*--main--*/
+.main {
+    padding: 6em 0 0;
+      background: url("../../assets/images/nightsky.jpg") repeat;
+     background-size:cover;
+}
+.main-info {
+    width: 70%;
+    margin: 5em auto;
+    background: transparent;
+    padding: 2em;
+	border-radius: 5px;
+}
+
+/*--//main--*/
+.weather-grids {
+    float: left;
+    width: 33%;
+}
+.weather-grids.weather-mdl {
+    text-align: center;
+    width:70;
+    height:70;
+
+}
+.weather-grids:nth-child(3) {
+    text-align: right;
+}
+.weather-grids h3 {
+    font-size: 1.5em;
+    color: #fff;
+}
+.weather-grids h3.fri {
+    font-weight: 900;
+    color: #FFD700;
+	margin-top: 0.7em;
+}
+.weather-grids h2 {
+    font-size: 3em;
+    font-weight: 300;
+	color: #fff;
+}
+.weather-grids h4 {
+    font-size: 1em;
+    color: #fff;
+}
+.weather-top{
+
+      box-shadow: 0 4px 8px 0 rgba(243, 239, 242, 0.2), 0 6px 20px 0 rgba(238, 211, 211, 0.19);
+
+}
+
+#carouselExampleIndicators{
+      box-shadow: 0 4px 8px 0 rgba(236, 224, 224, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.carousel-indicators{
+    filter: invert(100%);
+}
+
+.carousel-control-next {
+    filter: invert(100%);
+}
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+.weather-bottom {
+    text-align: center;
+
+    margin-top: 2em;
+      box-shadow: 0 4px 8px 0 rgba(250, 250, 250, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.weather-bottom ul li {
+    display: inline-block;
+    padding: 1em 0;
+    float: left;
+    width: 14.1%;
+}
+.weather-bottom .bg{
+      box-shadow: 0 4px 8px 0 rgba(247, 202, 202, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.weather-bottom h4 {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 100;
+}
+figure.icons {
+    margin: 0.5em 0;
+
+}
+.weather-bottom h5 {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 600;
+}
+.weather-bottom h6 {
+    font-size: 1em;
+    color: #FFD700;
+    margin-top: 0.5em;
+}
+/*--copyright--*/
+.copyright {
+    margin: 2em 0 1em;
+    text-align: center;
+}
+.copyright p {
+    font-size: 1.1em;
+    color: #000;
+	line-height:1.8em;
+}
+.copyright p a{
+    color: #000;
+}
+.copyright p a:hover{
+    color: #314277;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+/*--//copyright--*/
+/*---- responsive-design -----*/
+@media(max-width:1440px){
+.main {
+    padding: 5em 0 0;
+}
+}
+@media(max-width:1366px){
+.main-info {
+    width: 37%;
+}
+}
+@media(max-width:1280px){
+.main-info {
+    width: 39%;
+}
+}
+@media(max-width:1080px){
+.main-info {
+    width: 46%;
+}
+}
+@media(max-width:1024px){
+.main-info {
+    width: 47%;
+}
+}
+@media(max-width:900px){
+.main-info {
+    width: 50%;
+}
+}
+@media(max-width:800px){
+.main {
+    padding: 4em 0 0;
+    background-size:100vh 100vh;
+}
+.main-info {
+	margin: 4em auto;
+}
+h1 {
+    font-size: 2.8em;
+}
+.main-info {
+    width: 58%;
+}
+}
+@media(max-width:640px){
+h1 {
+    font-size: 2.6em;
+}
+.main-info {
+    width: 70%;
+	padding: 1.5em;
+}
+.weather-grids h2 {
+    font-size: 2.8em;
+}
+}
+@media(max-width:480px){
+h1 {
+    font-size: 2.2em;
+}
+
+.main-info {
+    width: 82%;
+    margin: 3em auto;
+}
+.weather-grids h3 {
+    font-size: 1.3em;
+}
+.weather-grids h2 {
+    font-size: 2.5em;
+}
+.weather-grids h4 {
+    font-size: 0.8em;
+}
+.weather-bottom h5 {
+    font-size: 1.1em;
+}
+.weather-bottom h6 {
+    font-size: 0.9em;
+}
+.copyright p {
+    font-size: 1em;
+}
+.main {
+    padding: 3em 0 0;
+}
+}
+@media(max-width:414px){
+.main-info {
+    padding: 1.5em 1em;
+}
+.weather-bottom h4 {
+    font-size: 0.9em;
+}
+canvas#clear-day {
+    width: 60px;
+    height: 60px;
+}
+.weather-bottom canvas {
+    width: 30px;
+    height: 30px;
+}
+.weather-bottom {
+    margin-top: 1.5em;
+}
+}
+@media(max-width:375px){
+h1 {
+    font-size: 1.8em;
+}
+.main {
+    padding: 2em 0 0;
+}
+}
+@media(max-width:320px){
+h1 {
+    font-size: 1.6em;
+}
+.main-info {
+    width: 82%;
+    margin: 1.5em auto;
+    padding: 1em;
+}
+.weather-grids h2 {
+    font-size: 2em;
+}
+.weather-grids h4 {
+    font-size: 0.7em;
+}
+.weather-grids h3 {
+    font-size: 1.1em;
+}
+canvas#clear-day {
+    width: 55px;
+    height: 55px;
+}
+.weather-bottom canvas {
+    width: 20px;
+    height: 20px;
+}
+.weather-bottom ul li {
+    width: 14.2%;
+	padding: 0.5em 0;
+}
+.weather-bottom h5 {
+    font-size: 0.9em;
+}
+.weather-bottom h6 {
+    font-size: 0.8em;
+}
+}
+
+
+/* header css*/
+
+.header-nightsky {
+    color: white;
+  background: url("../../assets/images/nightsky.jpg") repeat;
+    background-size: 100% 139vh;
+    background-position:center;
+    height:100vh;
+
+}
+
+.header-nightsky .navbar-nav>li>a {
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.header-nightsky .navbar {
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    border-bottom:none;
+
+    min-width: 300px;
+    border: none;
+    background: url("../../assets/images/nightsky.jpg") repeat;
+     background-size:cover;
+}
+
+.header-nightsky .navbar-default .navbar-nav>.open>a,
+.header-nightsky .navbar-default .navbar-nav>.open>a:focus,
+.header-nightsky .navbar-default .navbar-nav>.open>a:hover {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.header-nightsky .nav>li>a:focus,
+.header-nightsky .nav>li>a:hover {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.header-nightsky .navbar-nav>li {
+    margin-right: 20px;
+}
+
+.header-nightsky .navbar-nav {
+   margin-top: 12px;
+}
+
+.header-nightsky .navbar-toggle {
+    background-color: white;
+    margin-top: 20px;
+    border: 1px solid #fff;
+}
+
+.header-nightsky .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.header-nightsky .navbar-brand {
+    color: white;
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header-nightsky .navbar-brand:hover {
+    color: #ccc;
+}
+
+.header-nightsky .hero {
+    text-align: center;
+
+}
+
+.header-nightsky .hero h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    margin-bottom: 36px;
+}
+
+
+.header-nightsky .hero p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 22px;
+    max-width: 660px;
+    margin: 0 auto 20px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.header-nightsky .btn-primary {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fffbfb !important;
+    outline:none;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 24px;
+    padding: 18px 24px;
+    transition:0.2s background-color;
+}
+
+.header-nightsky .btn-primary:hover {
+    background-color:rgba(255,255,255,0.1);
+}
+
+.header-nightsky .btn-primary:active {
+    transform:translateY(1px);
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+    .header-nightsky .navbar-default .navbar-nav .open .dropdown-menu>li>a{
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .header-nightsky .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
+        color: #ccc;
+    }
+
+    .header-nightsky .navbar-collapse {
+        margin-left: 20px;
+        border-top: none;
+        box-shadow: none;
+    }
+
+    .header-nightsky .hero{
+
+    }
+
+    .header-nightsky .hero h1{
+        font-size: 42px;
+    }
+}
+
